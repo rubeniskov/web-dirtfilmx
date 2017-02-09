@@ -33,33 +33,33 @@ i18n.configure({
 	locales: ['es', 'en'],
 	directory: __dirname + '/locales'
 });
-
-social.config({
-	'keystone': keystone,
-	'signin url': '/social/login',
-	'auto create user': true,
-	'onAuthenticate': function() {
-		console.log(arguments, 'signin');
-	},
-	'providers': {
-		google: {
-			clientID: 'your-client-id',
-			clientSecret: 'your-client-secret'
-		},
-		facebook: {
-			clientID: 'your-client-id',
-			clientSecret: 'your-client-secret'
-		},
-		github: {
-			clientID: 'your-client-id',
-			clientSecret: 'your-client-secret'
-		},
-		twitter: {
-			clientID: 'your-client-id',
-			clientSecret: 'your-client-secret'
-		}
-	}
-});
+//
+// social.config({
+// 	'keystone': keystone,
+// 	'signin url': '/social/login',
+// 	'auto create user': true,
+// 	'onAuthenticate': function() {
+// 		console.log(arguments, 'signin');
+// 	},
+// 	'providers': {
+// 		google: {
+// 			clientID: 'your-client-id',
+// 			clientSecret: 'your-client-secret'
+// 		},
+// 		facebook: {
+// 			clientID: 'your-client-id',
+// 			clientSecret: 'your-client-secret'
+// 		},
+// 		github: {
+// 			clientID: 'your-client-id',
+// 			clientSecret: 'your-client-secret'
+// 		},
+// 		twitter: {
+// 			clientID: 'your-client-id',
+// 			clientSecret: 'your-client-secret'
+// 		}
+// 	}
+// });
 
 keystone.set('locals', {
 	_: require('underscore'),
@@ -68,9 +68,9 @@ keystone.set('locals', {
 	editable: keystone.content.editable
 });
 
-keystoneRestApi.createRest(keystone, {
-	apiRoot: '/api/v1/'
-});
+// keystoneRestApi.createRest(keystone, {
+// 	apiRoot: '/api/v1/'
+// });
 
 keystone.set('routes', require('./routes'));
 keystone.set('nav', {
