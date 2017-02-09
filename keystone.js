@@ -8,7 +8,8 @@ keystone.init({
 
 	'name': 'Paloma Sanchez Fernandez',
 	'brand': 'Paloma Sanchez Fernandez',
-
+	'port': process.env.PORT || 3000,
+	'host': process.env.NODE_ENV === 'production' ? '0.0.0.0' : process.env.IP || '127.0.0.1',
 	// 'admin path': 'admin',
 	'less': 'public',
 	'static': 'public',
