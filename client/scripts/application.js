@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 
 class App extends React.Component {
-	constructor(props) {
+  constructor(props) {
     super(props);
 
     this.state = {
       posts: []
     };
   }
-	componentDidMount() {
+  componentDidMount() {
     this.request = axios.get('/api/v1/posts')
         .then(res => {
           this.setState({
@@ -21,20 +21,20 @@ class App extends React.Component {
   componentWillUnmount() {
     this.request.abort();
   }
-	render() {
-		return (
-			<div>
+  render() {
+    return (
+      <div>
         <ul>
           {this.state.posts.map(post =>
             <li key={post.id}>{post.title}</li>
           )}
         </ul>
       </div>
-		);
-	}
+    );
+  }
 }
 
 ReactDOM.render(
-	<App />,
-	document.getElementById('app')
+  <App />,
+  document.getElementById('app')
 );
