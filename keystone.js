@@ -2,12 +2,13 @@ const
 	keystone = require('keystone'),
 	social = require('keystone-social-login'),
 	i18n = require('i18n'),
-	keystoneRestApi = require('keystone-rest-api');
+	keystoneRestApi = require('./modules/keystone-rest-api')
+	// restful = require('./modules/restful-keystone')(keystone);
 
 keystone.init({
 
-	'name': 'Paloma Sanchez Fernandez',
-	'brand': 'Paloma Sanchez Fernandez',
+	'name': 'palomasafe.com',
+	'brand': 'palomasafe',
 	'port': process.env.PORT || 3000,
 	'host': process.env.NODE_ENV === 'production' ? '0.0.0.0' : process.env.IP || '127.0.0.1',
 	// 'admin path': 'admin',
@@ -35,30 +36,30 @@ i18n.configure({
 });
 //
 // social.config({
-// 	'keystone': keystone,
-// 	'signin url': '/social/login',
-// 	'auto create user': true,
-// 	'onAuthenticate': function() {
-// 		console.log(arguments, 'signin');
-// 	},
-// 	'providers': {
-// 		google: {
-// 			clientID: 'your-client-id',
-// 			clientSecret: 'your-client-secret'
-// 		},
-// 		facebook: {
-// 			clientID: 'your-client-id',
-// 			clientSecret: 'your-client-secret'
-// 		},
-// 		github: {
-// 			clientID: 'your-client-id',
-// 			clientSecret: 'your-client-secret'
-// 		},
-// 		twitter: {
-// 			clientID: 'your-client-id',
-// 			clientSecret: 'your-client-secret'
-// 		}
-// 	}
+//   'keystone': keystone,
+//   'signin url': '/social/login',
+//   'auto create user': true,
+//   'onAuthenticate': function() {
+//     console.log(arguments, 'signin');
+//   },
+//   'providers': {
+//     google: {
+//       clientID: 'your-client-id',
+//       clientSecret: 'your-client-secret'
+//     },
+//     facebook: {
+//       clientID: 'your-client-id',
+//       clientSecret: 'your-client-secret'
+//     },
+//     github: {
+//       clientID: 'your-client-id',
+//       clientSecret: 'your-client-secret'
+//     },
+//     twitter: {
+//       clientID: 'your-client-id',
+//       clientSecret: 'your-client-secret'
+//     }
+//   }
 // });
 
 keystone.set('locals', {
@@ -68,9 +69,13 @@ keystone.set('locals', {
 	editable: keystone.content.editable
 });
 
-// keystoneRestApi.createRest(keystone, {
-// 	apiRoot: '/api/v1/'
-// });
+// restful.expose({
+// 	Post: true
+// }).start()
+
+keystoneRestApi.createRest(keystone, {
+  apiRoot: '/api/v1/'
+});
 
 keystone.set('routes', require('./routes'));
 keystone.set('nav', {
