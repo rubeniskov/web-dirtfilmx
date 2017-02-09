@@ -18,9 +18,10 @@ keystone.init({
 
 	'auto update': true,
 	'session': true,
+	'session store': 'mongo',
 	'auth': true,
 	'user model': 'User',
-	'cookie secret': process.env.APP_COOKIE_SECRET || require('crypto').randomBytes(Math.ceil(length / 2))
+	'cookie secret': process.env.APP_COOKIE_SECRET || require('crypto').randomBytes(Math.ceil(128 / 2))
 		.toString('hex')
 		.slice(0, 128)
 });
