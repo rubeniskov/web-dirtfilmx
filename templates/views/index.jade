@@ -1,0 +1,66 @@
+doctype html
+html
+	//- HTML HEADER
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+
+		title #{name}
+		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+
+		//- Customise the stylesheet for your site by editing /public/styles/site.less
+		//- All .less files will be automatically compiled and minified in production.
+		link(href="/styles/site.min.css", rel="stylesheet")
+		link(href="assets/vendor/bootstrap/css/bootstrap.min.css", rel="stylesheet", type="text/css", media="screen")
+		link(href="assets/vendor/fontawesome/css/font-awesome.css", rel="stylesheet", type="text/css", media="screen")
+		link(href="assets/vendor/flaticon/flaticon.css", rel="stylesheet", type="text/css", media="screen")
+
+		link(href="assets/vendor/rs-plugin/css/settings.css", rel="stylesheet", type="text/css", media="screen")
+		link(href="assets/vendor/rs-plugin/css/layers.css", rel="stylesheet", type="text/css", media="screen")
+		link(href="assets/vendor/rs-plugin/css/navigation.css", rel="stylesheet", type="text/css", media="screen")
+
+		link(href="assets/vendor/mfp/css/magnific-popup.css", rel="stylesheet", type="text/css", media="screen")
+		link(href="assets/vendor/progresstracker/css/jquery.progresstracker.css", rel="stylesheet")
+		link(href="assets/vendor/offcanvas-menu/css/normalize.css", rel="stylesheet", type="text/css")
+		link(href="assets/custom/css/style.css", rel="stylesheet", type="text/css", media="screen")
+
+		//- Fonts
+		link(href='http://fonts.googleapis.com/css?family=Oxygen:400,700', rel='stylesheet', type='text/css')
+		link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
+		link(href='https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800', rel='stylesheet', type='text/css')
+
+		//- JS
+		script(src="assets/vendor/jquery/js/jquery-2.2.0.min.js")
+		script(src="assets/vendor/bootstrap/js/bootstrap.min.js")
+		script(src="assets/vendor/sticky/js/jquery.sticky.js")
+		//- script(src="assets/vendor/mousewheel/js/jquery.mousewheel-3.0.6.pack.js")
+		script(src="assets/vendor/superfish/js/hoverIntent.js")
+		script(src="assets/vendor/horiz-timeline/js/hortimeline.js")
+		script(src="assets/vendor/rs-plugin/js/jquery.themepunch.tools.min.js?rev=5.0")
+		script(src="assets/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js?rev=5.0")
+		script(src="assets/vendor/rs-plugin/js/extensions/revolution.extension.slideanims.min.js")
+		script(src="assets/vendor/rs-plugin/js/extensions/revolution.extension.layeranimation.min.js")
+		script(src="assets/vendor/rs-plugin/js/extensions/revolution.extension.navigation.min.js")
+		script(src="assets/vendor/rs-plugin/js/extensions/revolution.extension.actions.min.js")
+
+		script(src="assets/vendor/modernizr/js/modernizr.js", )
+		script(src="assets/vendor/parallax/js/jquery.stellar.min.js", )
+		script(src="assets/vendor/imagesloaded/js/imagesloaded.pkgd.min.js", )
+		script(src="assets/vendor/isotope/js/isotope.pkgd.min.js", )
+		script(src="assets/vendor/mfp/js/jquery.magnific-popup.min.js", )
+		script(src="assets/vendor/anicounter/jquery.counterup.min.js", )
+		script(src="assets/vendor/circle-progress/circle-progress.js", )
+		script(src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js")
+		script(src="https://maps.google.com/maps/api/js?sensor=false", )
+		script(src="assets/vendor/offcanvas-menu/js/classie.js")
+		script(src="assets/vendor/photocard/main.js")
+		script(src="assets/vendor/progresstracker/js/jquery.progresstracker.js")
+		script(src="assets/vendor/flickr/js/jflickrfeed.min.js", )
+		script(src="assets/custom/js/script.js", )
+
+	//- HTML BODY
+	body
+		#app
+		script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCBroD1_P_WPvdhf3uyBxRzPiRbKvLiLBk')
+		script(src='/js/application.js')
