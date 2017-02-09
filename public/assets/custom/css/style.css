@@ -1768,8 +1768,8 @@ ul.sf-menu > li, .sf-menu > li > a {
 /*------------------------------------------------------------------
 [8. Page Content]
 */
-#progress {
-  background: url("../images/backgrounds/dark_wood.png"); }
+/*#progress {
+  background: url("../images/backgrounds/dark_wood.png"); }*/
 
 .progressbar {
   display: inline-block;

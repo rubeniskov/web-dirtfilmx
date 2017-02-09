@@ -2,7 +2,7 @@ const
 	keystone = require('keystone'),
 	social = require('keystone-social-login'),
 	i18n = require('i18n'),
-	keystoneRestApi = require('./modules/keystone-rest-api')
+	keystoneRestApi = require('./rest');
 	// restful = require('./modules/restful-keystone')(keystone);
 
 keystone.init({
@@ -27,6 +27,8 @@ keystone.init({
 		.toString('hex')
 		.slice(0, 128)
 });
+
+// keystone.mongoose.plugin(require('./modules/mongoose-plugins/auth').plugin);
 
 keystone.import('models');
 
@@ -69,13 +71,16 @@ keystone.set('locals', {
 	editable: keystone.content.editable
 });
 
+keystoneRestApi(keystone);
 // restful.expose({
 // 	Post: true
 // }).start()
 
-keystoneRestApi.createRest(keystone, {
-  apiRoot: '/api/v1/'
-});
+
+
+// keystoneRestApi.createRest(keystone, {
+//   apiRoot: '/api/v1/'
+// });
 
 keystone.set('routes', require('./routes'));
 keystone.set('nav', {
