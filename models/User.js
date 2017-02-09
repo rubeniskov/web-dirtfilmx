@@ -2,20 +2,23 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 var User = new keystone.List('User', {
-	nodelete: true
+	nodelete: true,
+  rest: true
 });
 
 User.add({
 	name: {
 		type: Types.Name,
 		required: true,
-		index: true
+		index: true,
+    grants: 'public'
 	},
 	email: {
 		type: Types.Email,
 		initial: true,
 		required: true,
-		index: true
+		index: true,
+    grants: 'public'
 	},
 	password: {
 		type: Types.Password,
@@ -52,6 +55,7 @@ User.schema.methods.wasActive = function() {
 
 (['name.first', 'name.last', 'email', 'password', 'isProtected']).map(function(path) {
 	User.schema.path(path).set(function(value) {
+    console.log('value',this.isProtected);
 		return (this.isProtected && this.get(path)) ? this.get(path) : value;
 	});
 });

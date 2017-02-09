@@ -3,13 +3,21 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 var Post = new keystone.List('Post', {
+  owner: 'admin',
+  group: 'juas',
 	autokey: {
 		from: 'name',
 		path: 'key',
 		unique: true
 	},
-	rest: true,
-	restOptions: 'list show create update delete'
+	rest: {
+      query: {
+          where: ['state', 'published'],
+          sort: ['-publishedDate'],
+          populate: ['author', '-password']
+      },
+      path: "/post"
+  }
 });
 
 Post.add({
@@ -37,12 +45,12 @@ Post.add({
 	// },
 	content: {
 		brief: {
-			type: Types.Html,
+			type: Types.Markdown,
 			wysiwyg: true,
 			height: 150
 		},
 		extended: {
-			type: Types.Html,
+			type: Types.Markdown,
 			wysiwyg: true,
 			height: 400
 		},
@@ -67,7 +75,11 @@ Post.add({
 // });
 
 // transform.toJSON(Post);
-
+// Post.restHooks = {
+// 		list: [function(req, res, next){
+// 				console.log(arguments);
+// 		}]
+// };
 
 Post.schema.virtual('content.full').get(function() {
 	return this.content.extended || this.content.brief;
