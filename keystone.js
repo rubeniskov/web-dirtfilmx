@@ -16,7 +16,7 @@ keystone.init({
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'jade',
-
+	'ssl': false,
 	'auto update': true,
 	'session': true,
 	'session store': 'mongo',
