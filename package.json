@@ -25,7 +25,8 @@
     "resty-stone": "0.0.32-alpha",
     "router": "^1.1.5",
     "store-prototype": "^1.1.1",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "snyk": "^1.83.0"
   },
   "engines": {
     "node": ">=0.10.22",
@@ -33,7 +34,10 @@
   },
   "scripts": {
     "start": "node keystone.js",
-    "preinstall": "printf '%s' ./modules/*/ | xargs -0 -L1 bash -c 'echo \"\n\\033[0;34mInstalling modules in\\033[0m: $0\n\" && npm install --ignore-scripts --prefix \"$0\" \"$0\"'"
+    "preinstall": "printf '%s' ./modules/*/ | xargs -0 -L1 bash -c 'echo \"\n\\033[0;34mInstalling modules in\\033[0m: $0\n\" && npm install --ignore-scripts --prefix \"$0\" \"$0\"'",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
-  "main": "keystone.js"
+  "main": "keystone.js",
+  "snyk": true
 }
