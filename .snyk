@@ -1,0 +1,17 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.19.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:hoek:20180212':
+    - keystone-social-login > less-middleware > less > request > hawk > hoek:
+        patched: '2021-04-07T00:23:46.436Z'
+    - keystone-social-login > less-middleware > less > request > hawk > boom > hoek:
+        patched: '2021-04-07T00:23:46.436Z'
+    - keystone-social-login > less-middleware > less > request > hawk > sntp > hoek:
+        patched: '2021-04-07T00:23:46.436Z'
+    - keystone-social-login > less-middleware > less > request > hawk > cryptiles > boom > hoek:
+        patched: '2021-04-07T00:23:46.436Z'
+  'npm:uglify-js:20151024':
+    - keystone-social-login > jade > transformers > uglify-js:
+        patched: '2021-04-07T00:23:46.436Z'
